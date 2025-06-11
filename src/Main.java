@@ -6,8 +6,8 @@ public class Main {
 
     public static String showLivePrintDouble(String liveInput, double liveDouble ){ // 입력한 숫자를 계산식 화면에 등록
         liveInput = liveInput + " " + liveDouble;                                   // displayPrint 안에 넣으려 하니까 Double 받을때랑 char 받을때 어케 나눠야 할지 몰라서 밖으로 뺌
-        return liveInput;
-   }
+        return liveInput;                                                           // 만약 입력받는 타입을 구분할 수 있다면 집어넣을 수 있고
+   }                                                                                // 구현은 안했지만 숫자랑 문자를 지우는 버튼이름?을 통일화 할 수 있다.
     public static String showLivePrintChar(String liveInput, char liveChar ){   // 입력한 연산자를 계산식 화면에 등록
         liveInput = liveInput + " " + liveChar;
         return liveInput;
@@ -56,7 +56,7 @@ public class Main {
         char liveChar = '\0';                                   // 현재 입력된 연산자 ( +일때 더하고 -일때 빼고 =일때 출력 구분역할 )
         double liveDouble = 0;                                  // 현재 입력된 숫자
         double liveRes = 0;                                     // 현재까지 계산된 값 ( liveInput 에 표기되는걸 계산한 값 )
-        double newDouble = 0;                                   // 새로 계산할 숫자
+        double newDouble = 0;                                   // 새로 계산할 숫자;
 
         liveDouble = inputNumber(liveInput,liveChar);           // 첫 입력하는 숫자
         liveRes = liveDouble;                                   // 현재 입력된 숫자는 첫입력된 숫자 하나
@@ -76,7 +76,12 @@ public class Main {
             displayPrint(liveInput);                             // 화면 출력~
             liveRes = Calculating(liveRes, newDouble, liveChar);  // 현재까지 계산된 값과 새로받은 숫자를 현재입력된 연산자로 계산 후 루프
         }
-
-
     }
+
+    // 지우는 버튼을 만들거라면 그냥 while 말고 카운팅을 해서 1, 3, 5 홀수는 숫자입력을, 2, 4, 6 짝수는 연산자입력을,
+    // 그리고 if 로 홀수일때 짝수일때로 구분점을 만들고, 지우는버튼을 누르면 카운팅을 1 빼서 이전 입력을 다시실행? 하게 만든다
+    // 왜냐면 구조상 입력을 이미 받고 화면에 출력이 된 다음에 지우는버튼을 눌러야 동작하는거니까 지워지는것은 이전 동작을 다시실행 하게하는것 일듯??
+    // 그러면 화면 출력도 뒤로 돌아가야하는데 이 경우 그냥 백업?버전 화면(문자열)을 저장해 놓아서 백업버전 화면(문자열)을 출력하자
+
+    // 완전 초기화 버튼은 main 함수를 다시 실행시켜야할것같은데 지금 메인함수마저 함수로 만들지 ( 변수들을 클래스로 만들면 가능하지 않을까? ) 아니면 다른방법이있을지 모르겠다.
 }
