@@ -1,6 +1,19 @@
 import java.util.Scanner;
 
 public class Main {
+
+    static final String soda = "소다";
+    static final String mountainDew = "마운틴듀";
+    static final String sprite = "스프라이트";
+    static final String contraBase = "콘트라베이스";
+    static final String seeGram = "씨그램";
+
+    static final int soda_price = 1000;
+    static final int mountainDew_price = 2000;
+    static final int sprite_price = 2300;
+    static final int contraBase_price = 2500;
+    static final int seeGram_price = 800;
+
     public static void run() {
 
         Scanner scanner = new Scanner(System.in);
@@ -8,38 +21,38 @@ public class Main {
         String item ="";
         int price = 0;
 
-        System.out.println("=== 자판기 메뉴 ===");
-        System.out.println("1. 멜론소다 (1,000원)");
-        System.out.println("2. 마운틴듀 (2,000원)");
-        System.out.println("3. 스프라이트 (2,300원)");
-        System.out.println("4. 콘트라베이스 (2,500원)");
-        System.out.println("5. 씨그램 (800원)");
+        System.out.printf("=== 자판기 메뉴 ===\n");
+        System.out.printf("1. %s (%d원)\n", soda, soda_price);
+        System.out.printf("2. %s (%d원)\n", mountainDew, mountainDew_price);
+        System.out.printf("3. %s (%d원)\n", sprite, sprite_price);
+        System.out.printf("4. %s (%d원)\n", contraBase, contraBase_price);
+        System.out.printf("5. %s (%d원)\n", seeGram, seeGram_price);
 
         System.out.print("뽑을 음료 번호를 입력하세요 : ");
         boolean bol = false;
         do {
             int inputint = scanner.nextInt();
             switch (inputint) {
-                case 1 : item = "멜론소다"; price = 1000; bol = true; break;
-                case 2 : item = "마운틴듀"; price = 2000; bol = true; break;
-                case 3 : item = "스프라이트"; price = 2300; bol = true; break;
-                case 4 : item = "콘트라베이스"; price = 2500; bol = true; break;
-                case 5 : item = "씨그램"; price = 800; bol = true; break;
+                case 1 : item = soda; price = soda_price; bol = true; break;
+                case 2 : item = mountainDew; price = mountainDew_price; bol = true; break;
+                case 3 : item = sprite; price = sprite_price; bol = true; break;
+                case 4 : item = contraBase; price = contraBase_price; bol = true; break;
+                case 5 : item = seeGram; price = seeGram_price; bol = true; break;
                 default: System.out.print("다시 입력하세요 : ");
             }
         } while (bol == false);
 
-        System.out.println("선택하신 음료는 " + item + "입니다. 금액을 넣어주세요 (정수) : ");
+        System.out.printf("선택하신 음료 %s의 가격은 %d원 입니다. 금액을 넣어주세요 : ", item, price);
         boolean boll = false;
         do {
             int inputMoney = scanner.nextInt();
             int res = inputMoney - price;
 
             if (inputMoney == price) {
-                System.out.println(item + " 가 나왔습니다. 음료를 확인해 주세요");
+                System.out.println(item + " (이)가 나왔습니다. 음료를 확인해 주세요");
                 boll = true;
             } else if (inputMoney > price) {
-                System.out.println(item + " 가 나왔습니다. 음료와 잔돈을 확인해주세요" + res + " 원");
+                System.out.println(item + " (이)가 나왔습니다. 음료와 잔돈을 확인해주세요 " + res + " 원");
                 boll = true;
             } else {
                 System.out.println("금액이 부족합니다. 금액을 더 넣어주세요. 부족한 금액 : " + (-res));
@@ -49,6 +62,5 @@ public class Main {
     }
     public static void main(String[] args) {
         run();
-
     }
 }
