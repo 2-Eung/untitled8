@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+class Liquid{
 
     static final String soda = "소다";
     static final String mountainDew = "마운틴듀";
@@ -11,8 +11,11 @@ public class Main {
     static final int soda_price = 1000;
     static final int mountainDew_price = 2000;
     static final int sprite_price = 2300;
-    static final int contraBase_price = 2500;
+    static final int contraBase_price = 2700;
     static final int seeGram_price = 800;
+}
+
+public class Main {
 
     public static void run() {
 
@@ -22,22 +25,22 @@ public class Main {
         int price = 0;
 
         System.out.printf("=== 자판기 메뉴 ===\n");
-        System.out.printf("1. %s (%d원)\n", soda, soda_price);
-        System.out.printf("2. %s (%d원)\n", mountainDew, mountainDew_price);
-        System.out.printf("3. %s (%d원)\n", sprite, sprite_price);
-        System.out.printf("4. %s (%d원)\n", contraBase, contraBase_price);
-        System.out.printf("5. %s (%d원)\n", seeGram, seeGram_price);
+        System.out.printf("1. %s (%d원)\n", Liquid.soda, Liquid.soda_price);
+        System.out.printf("2. %s (%d원)\n", Liquid.mountainDew, Liquid.mountainDew_price);
+        System.out.printf("3. %s (%d원)\n", Liquid.sprite, Liquid.sprite_price);
+        System.out.printf("4. %s (%d원)\n", Liquid.contraBase, Liquid.contraBase_price);
+        System.out.printf("5. %s (%d원)\n", Liquid.seeGram, Liquid.seeGram_price);
 
         System.out.print("뽑을 음료 번호를 입력하세요 : ");
         boolean bol = false;
         do {
             int inputint = scanner.nextInt();
             switch (inputint) {
-                case 1 : item = soda; price = soda_price; bol = true; break;
-                case 2 : item = mountainDew; price = mountainDew_price; bol = true; break;
-                case 3 : item = sprite; price = sprite_price; bol = true; break;
-                case 4 : item = contraBase; price = contraBase_price; bol = true; break;
-                case 5 : item = seeGram; price = seeGram_price; bol = true; break;
+                case 1 : item = Liquid.soda; price = Liquid.soda_price; bol = true; break;
+                case 2 : item = Liquid.mountainDew; price = Liquid.mountainDew_price; bol = true; break;
+                case 3 : item = Liquid.sprite; price = Liquid.sprite_price; bol = true; break;
+                case 4 : item = Liquid.contraBase; price = Liquid.contraBase_price; bol = true; break;
+                case 5 : item = Liquid.seeGram; price = Liquid.seeGram_price; bol = true; break;
                 default: System.out.print("다시 입력하세요 : ");
             }
         } while (bol == false);
