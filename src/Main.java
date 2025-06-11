@@ -2,25 +2,38 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // System.in 은 콘솔에서 입력받겠다.
+        Scanner scanner = new Scanner(System.in);
 
+        System.out.println("=== 자판기 메뉴 ===");
+        System.out.println("1. 닥터페퍼 (800원)");
+        System.out.println("2. 코카콜라 (5500원)");
+        System.out.println("3. 칠성사이다 (2000원)");
+        System.out.println("4. 마운틴듀 (3000원)");
+        System.out.println("5. 밀키스 (2110원)");
 
+        int choice = scanner.nextInt();
+        String item = "";
 
-        //scanner.nextLine(); // 실행했더니 입력을 할수있게됐고 글씨가 써졌다. 글자색은 다르다. 이부분은 어떻게보면 출력된것은 아니다.
-
-        String str = scanner.nextLine();
-        String word = scanner.next();
-        int intt = scanner.nextInt();
-        double doublee = scanner.nextDouble();
-        char ch = scanner.next().charAt(0);
-
-
-        System.out.println("문장 : " + str);      // 문자열 전체 줄단위 입력
-        System.out.println("단어 : " + word );    // 공백 전까지 문자열 한 단어 입력
-        System.out.println("숫자 : " + intt);     // 정수형 입력
-        System.out.println("실수 : " + doublee);  // 실수형 입력
-        System.out.println("문자 : " + ch);       // 첫 번째 문자만 추출 (연산자 등)
-
-        System.out.println("프로그램 죵료");
+        switch (choice) {
+            case 1:
+                item = "닥터페퍼";
+                break;
+            case 2:
+                item = "코카콜라";
+                break;
+            case 3:
+                item = "칠성사이다";
+                break;
+            case 4:
+                item = "마운틴듀";
+                break;
+            case 5:
+                item = "밀키스";
+                break;
+            default:
+                System.out.println("잘못된 선택입니다.");
+                return; // 잘못선택시 아래 println 을 실행하지 않게하는 역할
+        }
+        System.out.println(item);
     }
 }
