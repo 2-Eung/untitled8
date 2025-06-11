@@ -55,7 +55,7 @@ public class Main {
                 System.out.println(item + " (이)가 나왔습니다. 음료와 잔돈을 확인해주세요 " + res + " 원");
                 boll = true;
             } else {
-                System.out.println("금액이 부족합니다. 금액을 더 넣어주세요. 부족한 금액 : " + (-res));
+                System.out.printf("금액이 부족합니다. 부족한 금액 : %d원. 금액을 더 넣어주세요 : " , -res);
                 price = price - inputMoney;
             }
         } while (boll == false);
