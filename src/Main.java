@@ -1,17 +1,15 @@
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.Scanner;
 
 public class Main {
 
     public static String showLivePrintDouble(String liveInput, double liveDouble ){ // 입력한 숫자를 계산식 화면에 등록
-        liveInput = liveInput + " " + liveDouble;                                   // displayPrint 안에 넣으려 하니까 Double 받을때랑 char 받을때 어케 나눠야 할지 몰라서 밖으로 뺌
-        return liveInput;                                                           // 만약 입력받는 타입을 구분할 수 있다면 집어넣을 수 있고
-   }                                                                                // 구현은 안했지만 숫자랑 문자를 지우는 버튼이름?을 통일화 할 수 있다.
-    public static String showLivePrintChar(String liveInput, char liveChar ){   // 입력한 연산자를 계산식 화면에 등록
-        liveInput = liveInput + " " + liveChar;
+        liveInput = liveInput + " " + liveDouble;                                   // 문자열 = 문자열 + 숫자  가 가능하기때문에 이 코드가 작동함
         return liveInput;
-    }
+   }
+    public static String showLivePrintChar(String liveInput, char liveChar ){   // 입력한 연산자를 계산식 화면에 등록
+        liveInput = liveInput + " " + liveChar;                                 // displayPrint 안에 넣으려 하니까 Double 받을때랑 char 받을때 어케 나눠야 할지 몰라서 밖으로 뺌
+        return liveInput;                                                       // 만약 입력받는 타입을 구분할 수 있다면 집어넣을 수 있고
+    }                                                                           // 구현은 안했지만 숫자랑 문자를 지우는 버튼이름?을 통일화 할 수 있다.
     public static void displayPrint (String liveInput) {                        // 계산식 화면 출력
         int blank = 12;                                                         // 공백수 늘려서 입력한 값을 화면 밖으로 지워버림
         for (int i = 0; i<blank; i++){System.out.println();}
@@ -53,7 +51,7 @@ public class Main {
 
     public static void main(String[] args) {
         String liveInput = "";                                  // 화면에 출력되는 문자열 (누적 계산식) (showLivePrintDouble() 에 문자열 형식의 liveRes를 넣으면 그때그때 계산값이 출력됨)
-        char liveChar = '\0';                                   // 현재 입력된 연산자 ( +일때 더하고 -일때 빼고 =일때 출력 구분역할 )
+        char liveChar = '\0';        // 맞는표현?                // 현재 입력된 연산자 ( +일때 더하고 -일때 빼고 =일때 출력 구분역할 )
         double liveDouble = 0;                                  // 현재 입력된 숫자
         double liveRes = 0;                                     // 현재까지 계산된 값 ( liveInput 에 표기되는걸 계산한 값 )
         double newDouble = 0;                                   // 새로 계산할 숫자;
